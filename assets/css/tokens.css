@@ -2,33 +2,29 @@
    Light theme is the default; [data-theme="dark"] overrides colour tokens only. */
 
 :root {
-  /* Colour — light (Day): cream base, deep-rose primary, vibrant-gold secondary */
-  --color-bg: #fbf6ee;
-  --color-bg-alt: #f5ebdc;
-  --color-surface: #fffcf7;
-  --color-surface-2: #f7eee1;
-  --color-border: #eadcc7;
-  --color-border-strong: #dbc6a8;
-  --color-text: #2b171d;
-  --color-text-muted: #5c4248;
-  --color-text-subtle: #765d62;
-  --color-accent: #9e1c4a;           /* deep rose */
-  --color-accent-hover: #7f1239;
-  --color-accent-soft: #f7e1e7;
-  --color-accent-contrast: #fffaf2;
-  --color-secondary: #d4a017;        /* vibrant gold — decorative use (rings, bars, dots) */
-  --color-secondary-soft: #f8ead0;
-  --color-secondary-text: #855e00;   /* gold dark enough for text on cream (AA) */
-  --color-success: #d4a017;
-  --color-code-bg: #2b171d;
-  --color-code-text: #f6ead8;
-  --color-code-key: #f2c14e;
-  --color-code-str: #f5a8bf;
-  --gradient-brand: linear-gradient(135deg, #9e1c4a 0%, #c9503f 50%, #d4a017 100%);
-  --shadow-sm: 0 1px 2px rgb(60 22 32 / 0.06);
-  --shadow-md: 0 1px 2px rgb(60 22 32 / 0.05), 0 8px 24px -8px rgb(60 22 32 / 0.14);
-  --shadow-lg: 0 2px 4px rgb(60 22 32 / 0.05), 0 24px 48px -16px rgb(60 22 32 / 0.25);
-  --header-bg: rgb(251 246 238 / 0.85);
+  /* Colour — light (Day) */
+  --color-bg: #f7f7f5;
+  --color-bg-alt: #efefec;
+  --color-surface: #ffffff;
+  --color-surface-2: #f3f3f1;
+  --color-border: #e2e2de;
+  --color-border-strong: #cfcfca;
+  --color-text: #15171c;
+  --color-text-muted: #4d5360;
+  --color-text-subtle: #6a707c;
+  --color-accent: #4338ca;
+  --color-accent-hover: #3730a3;
+  --color-accent-soft: #e8e7fb;
+  --color-accent-contrast: #ffffff;
+  --color-success: #15803d;
+  --color-code-bg: #15171c;
+  --color-code-text: #e6e8ee;
+  --color-code-key: #a5b4fc;
+  --color-code-str: #86efac;
+  --shadow-sm: 0 1px 2px rgb(16 18 27 / 0.06);
+  --shadow-md: 0 1px 2px rgb(16 18 27 / 0.04), 0 8px 24px -8px rgb(16 18 27 / 0.12);
+  --shadow-lg: 0 2px 4px rgb(16 18 27 / 0.04), 0 24px 48px -16px rgb(16 18 27 / 0.22);
+  --header-bg: rgb(247 247 245 / 0.82);
 
   /* Typography */
   --font-sans: 'Inter', ui-sans-serif, system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
@@ -71,34 +67,26 @@
 }
 
 :root[data-theme='dark'] {
-  /* Colour — dark (Night): the contrast of the day palette — deep wine base,
-     gold primary, rose secondary, cream text */
-  --color-bg: #170d11;
-  --color-bg-alt: #1e1217;
-  --color-surface: #26161d;
-  --color-surface-2: #2f1c24;
-  --color-border: #3d2630;
-  --color-border-strong: #523440;
-  --color-text: #f8eedc;
-  --color-text-muted: #d6c3b2;
-  --color-text-subtle: #b29c8f;
-  --color-accent: #f2c14e;           /* vibrant gold */
-  --color-accent-hover: #f7d27c;
-  --color-accent-soft: #3a2a14;
-  --color-accent-contrast: #1d0f14;
-  --color-secondary: #ec6f96;        /* bright rose */
-  --color-secondary-soft: #3d1a27;
-  --color-secondary-text: #f39ab6;
-  --color-success: #f2c14e;
-  --color-code-bg: #0f080b;
-  --color-code-text: #f6ead8;
-  --color-code-key: #f2c14e;
-  --color-code-str: #f39ab6;
-  --gradient-brand: linear-gradient(135deg, #f2c14e 0%, #ec8a5e 50%, #ec6f96 100%);
+  /* Colour — dark (Night) */
+  --color-bg: #0d1117;
+  --color-bg-alt: #11161e;
+  --color-surface: #161b23;
+  --color-surface-2: #1c222c;
+  --color-border: #262d38;
+  --color-border-strong: #343c4a;
+  --color-text: #e8ebf1;
+  --color-text-muted: #a8b0bd;
+  --color-text-subtle: #8a93a2;
+  --color-accent: #9ba3ff;
+  --color-accent-hover: #b6bcff;
+  --color-accent-soft: #1f2340;
+  --color-accent-contrast: #0d1117;
+  --color-success: #4ade80;
+  --color-code-bg: #0a0d12;
   --shadow-sm: 0 1px 2px rgb(0 0 0 / 0.4);
-  --shadow-md: 0 1px 2px rgb(0 0 0 / 0.3), 0 8px 24px -8px rgb(0 0 0 / 0.55);
-  --shadow-lg: 0 2px 4px rgb(0 0 0 / 0.3), 0 24px 48px -16px rgb(0 0 0 / 0.75);
-  --header-bg: rgb(23 13 17 / 0.82);
+  --shadow-md: 0 1px 2px rgb(0 0 0 / 0.3), 0 8px 24px -8px rgb(0 0 0 / 0.5);
+  --shadow-lg: 0 2px 4px rgb(0 0 0 / 0.3), 0 24px 48px -16px rgb(0 0 0 / 0.7);
+  --header-bg: rgb(13 17 23 / 0.8);
 
   color-scheme: dark;
 }
