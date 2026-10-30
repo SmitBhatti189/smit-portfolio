@@ -34,9 +34,9 @@ There are no npm dependencies. `package.json` exists only for scripts.
 ## 4. Repository information
 
 - **Repository name:** `smit-portfolio`
-- **Intended remote:** `https://github.com/SmitBhatti189/smit-portfolio` (GitHub account `SmitBhatti189`)
+- **Remote:** https://github.com/SmitBhatti189/smit-portfolio (GitHub account `SmitBhatti189`)
 - **Default branch:** `main`
-- **Status:** see *Known issues*. The GitHub repository could not be created from the initial build session, so it must be created before the first push.
+- **Status:** Repository created by Smit on GitHub (2026-10-30), and the initial commit pushed to `main`. Claude sessions push via the Claude GitHub App, which must have access to this repository.
 
 ## 5. Folder structure
 
@@ -181,9 +181,9 @@ Semantic landmarks (`header`, `nav`, `main`, `section` with `aria-labelledby`, `
 - [x] Favicon, meta description and Open Graph basics
 - [x] Playwright smoke test suite (all checks passing)
 - [x] README and project documentation
+- [x] GitHub repository created and initial code pushed
 
 ### Pending
-- [ ] Create the GitHub repository and push (see Known issues)
 - [ ] Deployment / hosting (e.g. GitHub Pages)
 - [ ] Profile photo (waiting for an image from Smit)
 - [ ] Downloadable CV button (waiting for Smit's approval to publish the PDF)
@@ -194,7 +194,6 @@ Semantic landmarks (`header`, `nav`, `main`, `section` with `aria-labelledby`, `
 
 ## 15. Known issues
 
-- **GitHub repository not yet created.** The build session could not create new GitHub repositories (sessions are limited to pre-selected repositories, and creating a public repository was blocked). The project is fully committed locally on `main`. Once `SmitBhatti189/smit-portfolio` exists, it only needs to be pushed.
 - Section content is rendered by JavaScript, so it is invisible to crawlers that don't run JS (see decision 3).
 - Full-page screenshots show the sticky header partway down the page. This is a screenshot artifact, not a layout bug.
 
@@ -220,3 +219,4 @@ These are not in the CV and were therefore left out:
 | Date | Change |
 |---|---|
 | 2026-10-30 | Initial implementation: project structure, data-driven components for all eight sections from the CV, design-token system, light/dark theme with persistence and no-flash loading, responsive layout and mobile nav, accessibility features, dev server, Playwright smoke tests, README and this documentation. |
+| 2026-10-30 | Repository `SmitBhatti189/smit-portfolio` created on GitHub and the initial commit pushed. Repository info, feature lists and known issues updated. |
