@@ -9,6 +9,13 @@ export const profile = {
   initials: 'SB',
   title: 'Associate Software Developer',
   location: 'Rajkot, Gujarat, India',
+  photo: {
+    webpSrcset: 'assets/img/profile-480.webp 480w, assets/img/profile-960.webp 960w',
+    jpg: 'assets/img/profile-640.jpg',
+    width: 640,
+    height: 800,
+    alt: 'Portrait of Smit Bhatti smiling, wearing glasses and a black shirt',
+  },
   tagline:
     'I build and optimise features across .NET, Angular and PostgreSQL — working with Kafka, Redis, microservices and micro-front-end architecture.',
   about: [

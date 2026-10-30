@@ -107,10 +107,19 @@
   color: var(--color-accent);
   margin-bottom: var(--space-3);
 }
-.eyebrow::before { content: '// '; opacity: 0.6; }
+.eyebrow::before { content: '// '; color: var(--color-secondary-text); }
 
 .section__head { max-width: 680px; margin-bottom: var(--space-7); }
 .section__title { font-size: var(--text-2xl); }
+.section__title::after {
+  content: '';
+  display: block;
+  width: 56px;
+  height: 4px;
+  margin-top: var(--space-4);
+  border-radius: var(--radius-full);
+  background: var(--gradient-brand);
+}
 .section__intro { margin-top: var(--space-4); color: var(--color-text-muted); font-size: var(--text-lg); }
 
 .grid { display: grid; gap: var(--space-4); }
@@ -138,8 +147,8 @@
   width: 36px;
   height: 36px;
   border-radius: 10px;
-  background: var(--color-text);
-  color: var(--color-bg);
+  background: var(--gradient-brand);
+  color: #fffaf2;
   font-size: var(--text-sm);
   letter-spacing: 0.02em;
 }
@@ -237,22 +246,40 @@
 .hero__social { display: flex; gap: var(--space-1); margin-top: var(--space-5); margin-left: -10px; list-style: none; }
 
 .hero__visual { position: relative; display: grid; justify-items: center; }
-.avatar {
-  width: clamp(150px, 20vw, 210px);
-  aspect-ratio: 1;
-  border-radius: 32%;
-  display: grid;
-  place-items: center;
-  background: linear-gradient(140deg, var(--color-accent) 0%, color-mix(in srgb, var(--color-accent) 55%, #000) 100%);
+.hero__visual { padding-bottom: 170px; } /* code card overlaps only the lower ~30px of the photo */
+.portrait {
+  position: relative;
+  margin: 0;
+  width: clamp(240px, 26vw, 340px);
+  aspect-ratio: 4 / 5;
+}
+/* Gold offset block behind the photo */
+.portrait::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  transform: translate(18px, 18px) rotate(3deg);
+  border-radius: 28px;
+  background: var(--color-secondary-soft);
+  border: 2px solid var(--color-secondary);
+  z-index: -1;
+}
+.portrait picture {
+  display: block;
+  height: 100%;
+  padding: 4px;
+  border-radius: 28px;
+  background: var(--gradient-brand);
   box-shadow: var(--shadow-lg);
 }
-.avatar__initials { font-size: clamp(3rem, 6vw, 4.5rem); font-weight: 700; color: #fff; letter-spacing: -0.04em; }
-[data-theme='dark'] .avatar { background: linear-gradient(140deg, #6d74f0 0%, #353a9c 100%); }
+.portrait__img { width: 100%; height: 100%; object-fit: cover; border-radius: 24px; }
 
 .code-card {
-  width: min(100%, 380px);
-  margin-top: calc(var(--space-6) * -1);
-  margin-left: var(--space-7);
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: max-content;
+  max-width: 100%;
   border-radius: var(--radius-md);
   background: var(--color-code-bg);
   color: var(--color-code-text);
@@ -278,14 +305,17 @@
 .highlight { padding: var(--space-5); display: flex; flex-direction: column-reverse; gap: var(--space-1); }
 .highlight + .highlight { border-left: 1px solid var(--color-border); }
 .highlight dt { font-size: var(--text-sm); color: var(--color-text-muted); }
-.highlight dd { margin: 0; font-size: var(--text-xl); font-weight: 700; letter-spacing: -0.02em; }
+.highlight dd { margin: 0; color: var(--color-accent); font-size: var(--text-xl); font-weight: 700; letter-spacing: -0.02em; }
 
 @media (max-width: 860px) {
   .hero__inner { grid-template-columns: 1fr; }
   .hero__visual { order: -1; justify-items: start; }
+  .hero__visual { padding-bottom: 0; }
   .code-card { display: none; }
-  .avatar { width: 96px; border-radius: 28px; }
-  .avatar__initials { font-size: 2.25rem; }
+  .portrait { width: clamp(140px, 38vw, 200px); }
+  .portrait::before { transform: translate(10px, 10px) rotate(3deg); border-radius: 22px; }
+  .portrait picture, .portrait__img { border-radius: 20px; }
+  .portrait picture { border-radius: 22px; }
 }
 @media (max-width: 600px) {
   .highlights { grid-template-columns: 1fr; }
@@ -338,7 +368,7 @@
   display: grid;
   place-items: center;
   background: var(--color-surface);
-  border: 1px solid var(--color-border);
+  border: 2px solid var(--color-secondary);
   color: var(--color-accent);
 }
 .timeline__card { padding: var(--space-6); }
