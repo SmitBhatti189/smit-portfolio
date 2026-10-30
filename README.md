@@ -5,7 +5,7 @@ Personal portfolio website of **Smit Bhatti**, Associate Software Developer at T
 ## Features
 
 - Sections: Hero, About, Skills, Experience, Projects, Education & Certifications, Contact, Footer
-- Light (Day) and dark (Night) themes with a toggle, saved preference and no flash of the wrong theme on load
+- Day theme in deep rose, vibrant gold and cream; Night theme in a contrasting wine, gold and rose palette. Includes a toggle, saved preference and no flash of the wrong theme on load.
 - Fully responsive (desktop → 320px phones), with an accessible mobile menu
 - Accessible: semantic landmarks, skip link, keyboard navigation, visible focus, `prefers-reduced-motion` support
 - No frameworks and no runtime dependencies. All content lives in one data file.
@@ -36,6 +36,10 @@ The smoke test checks that every section renders, that the navigation and anchor
 ## Editing content
 
 All text comes from [`assets/js/data/profile.js`](assets/js/data/profile.js). Update that file to change what the site shows. You don't need to touch the markup.
+
+## Git workflow
+
+Each requirement is built on its own `feature/<name>` branch and merged into `main` with `--no-ff`. Every change is then a single merge commit that `git revert -m 1 <sha>` can undo. Branches are kept on GitHub. See `PROJECT_DOCUMENTATION.md` §4 for the details.
 
 ## Documentation
 

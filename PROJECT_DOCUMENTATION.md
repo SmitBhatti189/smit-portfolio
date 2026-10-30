@@ -1,6 +1,8 @@
 # Smit Bhatti Portfolio — Project Documentation
 
 > **Source of truth for this project.** Every change, however small, must update this file: implementation notes, the completed/pending feature lists and the change history. Describe only what is actually implemented.
+>
+> **Git workflow (permanent rule):** every new requirement gets its own branch off `main` (`feature/<short-name>` or `fix/<short-name>`). Commit the work there, push the branch, then merge it into `main` with `git merge --no-ff` so each requirement is one identifiable merge commit, and push `main`. Feature branches are kept, not deleted, so any change can be found and reverted later (see §4, "Branching & reverting").
 
 ---
 
@@ -38,6 +40,21 @@ There are no npm dependencies. `package.json` exists only for scripts.
 - **Default branch:** `main`
 - **Status:** Repository created by Smit on GitHub (2026-10-30), and the initial commit pushed to `main`. Claude sessions push via the Claude GitHub App, which must have access to this repository.
 
+### Branching & reverting
+
+| Step | Command |
+|---|---|
+| Start a requirement | `git checkout main && git pull && git checkout -b feature/<name>` |
+| Commit and publish the branch | `git commit …` then `git push -u origin feature/<name>` |
+| Merge into `main` | `git checkout main && git merge --no-ff feature/<name> && git push origin main` |
+| Undo a requirement later | `git revert -m 1 <merge-commit-sha>` on `main`, then push |
+
+`git log --first-parent main` lists one merge commit per requirement. All feature branches stay on GitHub for reference.
+
+| Branch | Requirement | Merged |
+|---|---|---|
+| `feature/rose-gold-theme-profile-photo` | Deep-rose / gold / cream palette (light), contrasting palette (dark), profile photo in hero | 2026-10-30 |
+
 ## 5. Folder structure
 
 ```
@@ -59,7 +76,10 @@ smit-portfolio/
 │   │   ├── interactions.js     # Scroll reveal, copy-email-to-clipboard
 │   │   ├── icons.js            # Inline SVG icon set
 │   │   └── utils.js            # esc(), tags(), sectionHeading(), external-link attrs
-│   └── img/favicon.svg         # "SB" monogram favicon
+│   └── img/
+│       ├── favicon.svg         # "SB" monogram favicon on a rose→gold gradient
+│       ├── profile.webp        # Hero portrait, 452×565, WebP (primary)
+│       └── profile.jpg         # Hero portrait, JPEG fallback
 ├── scripts/serve.mjs           # Zero-dependency static dev server
 ├── tests/smoke.cjs             # Playwright end-to-end smoke test
 ├── package.json                # npm scripts (start, test)
@@ -71,14 +91,17 @@ smit-portfolio/
 
 ## 6. Design guidelines
 
-**Look and feel:** neutral, near-white or near-black backgrounds, one indigo accent, generous whitespace, soft borders and shadows, rounded corners. A small "code" motif (monospace `// eyebrow` labels and a code card in the hero) points to a developer identity without being gimmicky.
+**Look and feel:** warm and premium. The light (Day) theme pairs a cream base with a deep-rose primary and a vibrant-gold secondary. The dark (Night) theme inverts that pairing: a deep wine base, gold primary, bright-rose secondary and cream text. Generous whitespace, soft borders and shadows, rounded corners. A small "code" motif (monospace `// eyebrow` labels and a code card in the hero) points to a developer identity without being gimmicky.
 
 **Design tokens** (`assets/css/tokens.css`). Always use tokens. Never hard-code colours in components.
 
 | Token group | Notes |
 |---|---|
-| Colour | `--color-bg`, `--color-bg-alt` (alternating sections), `--color-surface`, `--color-surface-2`, `--color-border(-strong)`, `--color-text`, `--color-text-muted`, `--color-text-subtle`, `--color-accent(-hover/-soft/-contrast)`, `--color-success`, code colours |
-| Accent | Light `#4338ca`, dark `#9ba3ff` |
+| Colour | `--color-bg`, `--color-bg-alt` (alternating sections), `--color-surface`, `--color-surface-2`, `--color-border(-strong)`, `--color-text`, `--color-text-muted`, `--color-text-subtle`, `--color-accent(-hover/-soft/-contrast)`, `--color-secondary(-soft/-text)`, `--color-success`, `--gradient-brand`, code colours |
+| Palette (Day) | Cream bg `#fbf6ee` / alt `#f5ebdc` / surface `#fffcf7`. Text `#2b171d`. **Accent = deep rose `#9e1c4a`**. **Secondary = vibrant gold `#d4a017`**, used decoratively; `--color-secondary-text` `#855e00` for gold text. |
+| Palette (Night) | Wine bg `#170d11` / alt `#1e1217` / surface `#26161d`. Cream text `#f8eedc`. **Accent = vibrant gold `#f2c14e`**. **Secondary = bright rose `#ec6f96`** (text variant `#f39ab6`). |
+| Brand gradient | `--gradient-brand`: rose → terracotta → gold (Day), gold → coral → rose (Night). Used on the logo, the photo frame and the section-title underline bar. |
+| Accent roles | Accent: primary buttons, links, pills, role title, highlight values, icons. Secondary: eyebrow `//` prefix, status dot, timeline marker rings, the offset block behind the portrait. |
 | Type | Inter. Fluid scale `--text-xs` … `--text-hero` using `clamp()`. Body line-height 1.65. Headings have tight letter-spacing. |
 | Spacing | 4px-based `--space-1` … `--space-8`. `--section-pad` is fluid. |
 | Shape | `--radius-sm/md/lg/full`. Container max width 1120px, fluid `--gutter`. |
@@ -93,7 +116,7 @@ smit-portfolio/
 | # | Section (`id`) | Content (from CV) | Component |
 |---|---|---|---|
 | — | Header / nav | Monogram and name, links to all sections, theme toggle, mobile menu | `index.html`, `nav.js`, `theme.js` |
-| 1 | Hero (`#home`) | Name, title, summary, "Get in touch" and "View projects" CTAs, email/LinkedIn/GitHub icons, "SB" avatar, code card, 3 highlights | `hero.js` |
+| 1 | Hero (`#home`) | Name, title, summary, "Get in touch" and "View projects" CTAs, email/LinkedIn/GitHub icons, profile photo (gradient frame and gold offset block), overlapping code card, 3 highlights | `hero.js` |
 | 2 | About (`#about`) | Two-paragraph professional summary, location, technical interests, strengths (soft skills), personal interests | `about.js` |
 | 3 | Skills (`#skills`) | 6 groups: Languages, Frameworks & Runtimes, Databases, Architecture & Messaging, Web, Tools. Coursework line. | `skills.js` |
 | 4 | Experience (`#experience`) | Timeline: TSS Consultancy (Associate Software Developer, Oct 2024–Present), TSS Consultancy (SDK Builder Intern, Dec 2023–Mar 2024), Sampaarsh Technology (Web Developer Intern, Jun–Jul 2023) | `experience.js` |
@@ -113,6 +136,7 @@ smit-portfolio/
 - The two "Certification" entries in the CV are internship certificates and appear as such.
 - **Phone number deliberately omitted** for privacy (it is in the CV). Add it only if Smit asks.
 - **GitHub link** (`github.com/SmitBhatti189`) is not in the CV. It comes from Smit's GitHub account, which was configured in the build environment.
+- **Profile photo** was provided by Smit on 2026-10-30. The source image carried a "Recommended Hairstyle for You" overlay, so it was cropped to 4:5 and the remaining text fragments on the plain wall background were covered with nearby wall texture. Smit himself was not edited. Data lives in `profile.photo` (paths, size, alt text).
 
 ## 8. Theme implementation
 
@@ -122,14 +146,14 @@ smit-portfolio/
 - **Persistence:** saves the explicit choice to `localStorage` under the key `theme`. Every storage access is wrapped in try/catch, so private or locked-down browsers still work.
 - **OS changes:** while no explicit choice is saved, the site follows changes to the system theme.
 - **Transitions:** `.theme-transition` is added for 300 ms during a switch, so colours cross-fade only during that switch.
-- **Contrast:** body and muted text meet WCAG AA in both themes. The accent colour on its surfaces also meets AA, and the dark accent was lightened for that reason.
+- **Contrast (measured):** Day — text/bg 15.7:1, muted 7.7:1, subtle 5.1:1, rose accent/bg 7.2:1, button text on rose 7.4:1, gold text 5.4:1. Night — text/bg 16.6:1, muted 10.1:1, subtle 7.0:1, gold accent/bg 11.4:1, button text on gold 11.1:1, rose text 9.2:1. All pass WCAG AA. Plain gold `#d4a017` is never used for text on cream.
 
 ## 9. Responsive design guidelines
 
 | Breakpoint | Behaviour |
 |---|---|
 | > 860px | Full horizontal nav; two-column hero, about, education and contact |
-| ≤ 860px | Hamburger menu (dropdown panel, closes on link click, Escape key or resize to desktop). Single-column layouts. Hero avatar shrinks and moves above the text. Code card hidden. |
+| ≤ 860px | Hamburger menu (dropdown panel, closes on link click, Escape key or resize to desktop). Single-column layouts. Hero photo shrinks (140–200px wide) and moves above the text. Code card hidden. |
 | ≤ 600px | Highlights stack vertically. Timeline rail and markers hidden. Job meta aligned left. |
 | ≤ 520px | Education meta moves under the title. Footer stacks and centres. |
 | ≤ 400px | Hero and contact buttons go full width |
@@ -137,7 +161,8 @@ smit-portfolio/
 - Fluid type, spacing and gutters use `clamp()`. Grids use `auto-fill` with `minmax(min(100%, Npx), 1fr)` so they never overflow.
 - Every button and icon button is at least 44×44px. Text links have a 44px minimum height.
 - `body { overflow-x: clip }` is a safety net, and long email or URL strings wrap.
-- Images and SVGs use `max-width: 100%`. The site currently has no raster images.
+- Images and SVGs use `max-width: 100%`. The portrait is served as WebP with a JPEG fallback via `<picture>`. It has explicit `width`/`height` (no layout shift) and `fetchpriority="high"`, and uses `object-fit: cover` inside a fixed 4:5 frame.
+- On desktop the code card is absolutely positioned under the photo, and `.hero__visual` has 170px bottom padding so the card overlaps only the lower ~30px of the photo at every width (the face is never covered).
 
 ## 10. Accessibility
 
@@ -163,7 +188,7 @@ Semantic landmarks (`header`, `nav`, `main`, `section` with `aria-labelledby`, `
 1. **No framework or build step.** One page with eight sections doesn't need React or Vite. Zero dependencies means fast loads, nothing to update and hosting anywhere (including GitHub Pages).
 2. **Data-driven components.** Content is separate from markup, so future edits (a new job or project) are one change in one file.
 3. **Client-side rendering of sections.** This keeps components reusable without a build step. The trade-off is that crawlers which don't run JavaScript see less content. `<head>` metadata and the `<noscript>` block cover the essentials. Pre-rendering is listed under Future improvements.
-4. **Initials avatar instead of a photo.** The CV contains no profile image. The "SB" avatar stands in until Smit provides a photo.
+4. **Profile photo.** Originally an "SB" initials avatar, because the CV has no image. Replaced on 2026-10-30 with the photo Smit provided. The "SB" monogram remains as the nav logo and favicon.
 5. **Phone number omitted** from a public site for privacy.
 6. **Google Fonts** are used for typography quality. System-font fallbacks are defined, so the site still works if the font request fails.
 
@@ -182,15 +207,17 @@ Semantic landmarks (`header`, `nav`, `main`, `section` with `aria-labelledby`, `
 - [x] Playwright smoke test suite (all checks passing)
 - [x] README and project documentation
 - [x] GitHub repository created and initial code pushed
+- [x] Deep-rose / vibrant-gold / cream palette (Day) and contrasting wine / gold / rose palette (Night)
+- [x] Profile photo in hero (optimised WebP + JPEG fallback)
+- [x] Branch-per-requirement Git workflow with `--no-ff` merges into `main`
 
 ### Pending
 - [ ] Deployment / hosting (e.g. GitHub Pages)
-- [ ] Profile photo (waiting for an image from Smit)
 - [ ] Downloadable CV button (waiting for Smit's approval to publish the PDF)
 
 ## 14. Testing
 
-`npm test` starts the dev server and runs headless Chromium. It verifies: all sections render; every in-page anchor resolves; nav links scroll to the right section; external links use `target="_blank"` with `rel="noopener noreferrer"`; mailto links are correct; there are no broken images; the favicon is served; theme defaults, toggling, `localStorage` persistence and reload persistence work; the dark background is applied; the system dark preference is applied before the page renders; there are no console errors or failed requests; there is no horizontal overflow at 1440, 1280, 768, 390 and 320px; the mobile menu opens and closes; and touch targets are at least 44px. Run `SCREENSHOTS=1 npm test` to save screenshots for visual review.
+`npm test` starts the dev server and runs headless Chromium. It verifies: all sections render; every in-page anchor resolves; nav links scroll to the right section; external links use `target="_blank"` with `rel="noopener noreferrer"`; mailto links are correct; there are no broken images; the favicon is served; theme defaults, toggling, `localStorage` persistence and reload persistence work; the dark background matches the theme's `--color-bg` token; the system dark preference is applied before the page renders; there are no console errors or failed requests; there is no horizontal overflow at 1440, 1280, 768, 390 and 320px; the mobile menu opens and closes; and touch targets are at least 44px. Run `SCREENSHOTS=1 npm test` to save screenshots for visual review.
 
 ## 15. Known issues
 
@@ -200,14 +227,13 @@ Semantic landmarks (`header`, `nav`, `main`, `section` with `aria-labelledby`, `
 ## 16. Missing information from the CV
 
 These are not in the CV and were therefore left out:
-- Profile photo
 - GitHub repository or live-demo links for "Visit your Barber" and the SDK project (the SDK is likely proprietary)
 - Portfolio-specific headline or bio (the summary was written only from CV facts)
 
 ## 17. Future improvements
 
 - Pre-render sections into static HTML at build time for SEO, keeping the data file as the source.
-- Add a profile photo (optimised WebP/AVIF with `srcset`).
+- Provide a higher-resolution portrait (the current source is 638×592), so a 2× `srcset` can be served on high-DPI screens.
 - Add a "Download CV" button if Smit approves publishing it.
 - Self-host fonts to remove the third-party request.
 - Add an Open Graph share image.
@@ -220,3 +246,4 @@ These are not in the CV and were therefore left out:
 |---|---|
 | 2026-10-30 | Initial implementation: project structure, data-driven components for all eight sections from the CV, design-token system, light/dark theme with persistence and no-flash loading, responsive layout and mobile nav, accessibility features, dev server, Playwright smoke tests, README and this documentation. |
 | 2026-10-30 | Repository `SmitBhatti189/smit-portfolio` created on GitHub and the initial commit pushed. Repository info, feature lists and known issues updated. |
+| 2026-10-30 | **Branch `feature/rose-gold-theme-profile-photo`.** New palette: deep rose, vibrant gold and cream (Day), with a contrasting wine/gold/rose palette (Night). Added `--color-secondary*` and `--gradient-brand` tokens. Profile photo (provided by Smit, overlay text removed) replaces the initials avatar, with a gradient frame, gold offset block and repositioned code card. Gradient logo and favicon, section-title underline bar, updated `theme-color` meta. The smoke test now checks the dark background against the token instead of a hard-coded colour. Adopted the branch-per-requirement Git workflow. |
