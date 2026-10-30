@@ -25,15 +25,11 @@ export function renderHero() {
       </ul>
     </div>
 
-    <div class="hero__visual reveal">
-      <figure class="portrait">
-        <picture>
-          <source srcset="${esc(profile.photo.webp)}" type="image/webp" />
-          <img class="portrait__img" src="${esc(profile.photo.jpg)}" alt="${esc(profile.photo.alt)}"
-            width="${profile.photo.width}" height="${profile.photo.height}" fetchpriority="high" decoding="async" />
-        </picture>
-      </figure>
-      <div class="code-card" aria-hidden="true">
+    <div class="hero__visual reveal" aria-hidden="true">
+      <div class="avatar">
+        <span class="avatar__initials">${esc(profile.initials)}</span>
+      </div>
+      <div class="code-card">
         <div class="code-card__bar"><span></span><span></span><span></span></div>
         <pre class="code-card__body"><code><span class="tk-k">const</span> developer = {
   name: <span class="tk-s">'${esc(profile.name)}'</span>,

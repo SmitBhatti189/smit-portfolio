@@ -89,15 +89,8 @@ async function waitForServer() {
     check((await page.evaluate(() => localStorage.getItem('theme'))) === 'dark', 'Choice saved to localStorage');
     await page.reload({ waitUntil: 'networkidle' });
     check((await page.getAttribute('html', 'data-theme')) === 'dark', 'Dark theme persists after reload');
-    const [bg, expected] = await page.evaluate(() => {
-      const probe = document.createElement('div');
-      probe.style.color = 'var(--color-bg)';
-      document.body.append(probe);
-      const value = getComputedStyle(probe).color;
-      probe.remove();
-      return [getComputedStyle(document.body).backgroundColor, value];
-    });
-    check(bg === expected && bg !== 'rgb(251, 246, 238)', `Dark background applied (${bg})`);
+    const bg = await page.evaluate(() => getComputedStyle(document.body).backgroundColor);
+    check(bg === 'rgb(13, 17, 23)', `Dark background applied (${bg})`);
     if (SHOTS) {
       await page.evaluate(() => document.querySelectorAll('.reveal').forEach((el) => el.classList.add('is-visible')));
       await page.waitForTimeout(700);
