@@ -1,0 +1,16 @@
+{
+  "name": "smit-portfolio",
+  "version": "1.0.0",
+  "description": "Personal portfolio website of Smit Bhatti — Associate Software Developer.",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "start": "node scripts/serve.mjs",
+    "test": "node tests/smoke.cjs"
+  },
+  "engines": {
+    "node": ">=18"
+  },
+  "author": "Smit Bhatti",
+  "license": "UNLICENSED"
+}

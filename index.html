@@ -1,0 +1,107 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Smit Bhatti — Associate Software Developer</title>
+  <meta name="description" content="Portfolio of Smit Bhatti, Associate Software Developer at TSS Consultancy, Rajkot — .NET, Angular, PostgreSQL, Kafka, Redis and Go." />
+  <meta name="author" content="Smit Bhatti" />
+  <meta name="color-scheme" content="light dark" />
+  <meta name="theme-color" content="#f7f7f5" media="(prefers-color-scheme: light)" />
+  <meta name="theme-color" content="#0d1117" media="(prefers-color-scheme: dark)" />
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="Smit Bhatti — Associate Software Developer" />
+  <meta property="og:description" content="Experience, skills and projects of Smit Bhatti, software developer based in Rajkot, India." />
+  <link rel="icon" href="assets/img/favicon.svg" type="image/svg+xml" />
+
+  <!-- Apply the saved / system theme before first paint to avoid a flash of the wrong theme. -->
+  <script>
+    (function () {
+      var theme;
+      try { theme = localStorage.getItem('theme'); } catch (e) {}
+      if (theme !== 'light' && theme !== 'dark') {
+        theme = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+      }
+      document.documentElement.setAttribute('data-theme', theme);
+    })();
+  </script>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" />
+  <link rel="stylesheet" href="assets/css/tokens.css" />
+  <link rel="stylesheet" href="assets/css/base.css" />
+  <link rel="stylesheet" href="assets/css/components.css" />
+  <script type="module" src="assets/js/main.js"></script>
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+
+  <header class="site-header" id="top">
+    <nav class="nav container" aria-label="Primary">
+      <a class="nav__brand" href="#home" aria-label="Smit Bhatti — back to top">
+        <span class="nav__logo" aria-hidden="true">SB</span>
+        <span class="nav__name">Smit Bhatti</span>
+      </a>
+
+      <ul class="nav__links" id="nav-links">
+        <li><a href="#about">About</a></li>
+        <li><a href="#skills">Skills</a></li>
+        <li><a href="#experience">Experience</a></li>
+        <li><a href="#projects">Projects</a></li>
+        <li><a href="#education">Education</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+
+      <div class="nav__actions">
+        <button class="icon-btn theme-toggle" type="button" id="theme-toggle" aria-label="Switch to dark theme">
+          <svg class="icon icon--sun" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M4.93 19.07l1.41-1.41M17.66 6.34l1.41-1.41"/></svg>
+          <svg class="icon icon--moon" viewBox="0 0 24 24" aria-hidden="true"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+        </button>
+        <button class="icon-btn nav__toggle" type="button" id="nav-toggle" aria-label="Open menu" aria-expanded="false" aria-controls="nav-links">
+          <span class="burger" aria-hidden="true"><span></span><span></span><span></span></span>
+        </button>
+      </div>
+    </nav>
+  </header>
+
+  <main id="main">
+    <section class="hero" id="home" aria-labelledby="hero-title" data-render="hero"></section>
+
+    <section class="section" id="about" aria-labelledby="about-title">
+      <div class="container" data-render="about"></div>
+    </section>
+
+    <section class="section section--alt" id="skills" aria-labelledby="skills-title">
+      <div class="container" data-render="skills"></div>
+    </section>
+
+    <section class="section" id="experience" aria-labelledby="experience-title">
+      <div class="container" data-render="experience"></div>
+    </section>
+
+    <section class="section section--alt" id="projects" aria-labelledby="projects-title">
+      <div class="container" data-render="projects"></div>
+    </section>
+
+    <section class="section" id="education" aria-labelledby="education-title">
+      <div class="container" data-render="education"></div>
+    </section>
+
+    <section class="section section--alt" id="contact" aria-labelledby="contact-title">
+      <div class="container" data-render="contact"></div>
+    </section>
+
+    <noscript>
+      <div class="container noscript">
+        <h1>Smit Bhatti — Associate Software Developer</h1>
+        <p>Please enable JavaScript to view the full portfolio. You can reach me at
+          <a href="mailto:smitsbhatti93@gmail.com">smitsbhatti93@gmail.com</a> or on
+          <a href="https://www.linkedin.com/in/smit-bhatti">LinkedIn</a>.</p>
+      </div>
+    </noscript>
+  </main>
+
+  <footer class="site-footer" data-render="footer"></footer>
+</body>
+</html>
