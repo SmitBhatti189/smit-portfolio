@@ -5,7 +5,7 @@ import { icons } from '../icons.js';
 /** About: professional summary plus interests and soft skills. */
 export function renderAbout() {
   return `
-  ${sectionHeading('about', 'About me', 'Software developer focused on reliable, maintainable systems')}
+  ${sectionHeading('about', 'About me', profile.aboutTitle)}
   <div class="about">
     <div class="about__text reveal">
       ${profile.about.map((p) => `<p>${esc(p)}</p>`).join('')}
@@ -18,7 +18,7 @@ export function renderAbout() {
       </div>
       <div class="card card--flat">
         <h3 class="card__label">Strengths</h3>
-        ${tags(profile.softSkills)}
+        ${tags(profile.strengths)}
       </div>
       <div class="card card--flat">
         <h3 class="card__label">Outside work</h3>

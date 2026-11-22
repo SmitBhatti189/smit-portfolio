@@ -1,10 +1,10 @@
 # Smit Bhatti — Portfolio
 
-Personal portfolio website of **Smit Bhatti**, Associate Software Developer at TSS Consultancy Pvt. Ltd., Rajkot. It presents my experience, technical skills, projects, education and contact details for recruiters, clients and other professionals.
+Personal portfolio website of **Smit Bhatti**, backend-focused Associate Software Developer at TSS Consultancy Pvt. Ltd., Rajkot. It presents my experience, technical skills, projects, education and contact details for recruiters, clients and other professionals.
 
 ## Features
 
-- Sections: Hero, About, Skills, Experience, Projects, Education & Certifications, Contact, Footer
+- Sections: Hero, About, Skills, Experience, Projects, Education, Contact, Footer
 - Day theme in deep rose, vibrant gold and cream; Night theme in a contrasting wine, gold and rose palette. Includes a toggle, saved preference and no flash of the wrong theme on load.
 - Fully responsive (desktop → 320px phones), with an accessible mobile menu
 - Accessible: semantic landmarks, skip link, keyboard navigation, visible focus, `prefers-reduced-motion` support
