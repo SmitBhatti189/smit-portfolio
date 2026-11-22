@@ -17,7 +17,7 @@ export function renderHero() {
       <div class="hero__cta">
         <a class="btn btn--primary" href="#contact">Get in touch ${icons.arrowRight}</a>
         <a class="btn btn--ghost" href="${esc(profile.resume.href)}" download="${esc(profile.resume.fileName)}">
-          ${icons.download} Download resume <span class="sr-only">(PDF)</span>
+          ${icons.download} Resume <span class="sr-only">(download PDF)</span>
         </a>
         <a class="btn btn--ghost" href="#projects">View projects</a>
       </div>

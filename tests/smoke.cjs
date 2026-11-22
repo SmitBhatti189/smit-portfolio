@@ -76,6 +76,8 @@ async function waitForServer() {
     check(ext.length > 0 && ext.every((a) => a.target === '_blank' && a.rel.includes('noopener')), `All ${ext.length} external links open safely in a new tab`);
     const mail = await page.$$eval('a[href^="mailto:"]', (as) => as.map((a) => a.getAttribute('href')));
     check(mail.length > 0 && mail.every((m) => m === 'mailto:smitsbhatti93@gmail.com'), 'mailto links are correct');
+    const tel = await page.$$eval('a[href^="tel:"]', (as) => as.map((a) => a.getAttribute('href')));
+    check(tel.length === 1 && tel[0] === 'tel:+919426369444', 'Phone link in contact is correct');
     const broken = await page.$$eval('img', (imgs) => imgs.filter((i) => !i.complete || i.naturalWidth === 0).length);
     check(broken === 0, 'No broken images');
     const favicon = await fetch(BASE + 'assets/img/favicon.svg');
