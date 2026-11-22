@@ -14,5 +14,6 @@ export const icons = {
   cap: svg('<path d="m2 9 10-5 10 5-10 5z"/><path d="M6 11v5c0 1.5 2.7 3 6 3s6-1.5 6-3v-5M22 9v6"/>'),
   copy: svg('<rect x="9" y="9" width="12" height="12" rx="2"/><path d="M5 15V5a2 2 0 0 1 2-2h10"/>'),
   check: svg('<path d="m5 12 5 5L20 7"/>'),
+  download: svg('<path d="M12 4v11M7 10l5 5 5-5M5 20h14"/>'),
   arrowUp: svg('<path d="M12 19V5M6 11l6-6 6 6"/>'),
 };

@@ -10,7 +10,7 @@
 
 A personal portfolio website for **Smit Bhatti**, Associate Software Developer at TSS Consultancy Pvt. Ltd. (Rajkot, Gujarat, India). It introduces Smit, shows his technical skills, experience, projects and education, and gives clear ways to get in touch.
 
-**Primary content source:** Smit's updated resume (`Smit_Bhatti_Resume.pdf`, provided 2026-11-22), which replaced the original CV (`Smit_Bhatti_CV.pdf`, 2026-10-30). Neither PDF is committed to the repository.
+**Primary content source:** Smit's updated resume (`Smit_Bhatti_Resume.pdf`, provided 2026-11-22), which replaced the original CV (`Smit_Bhatti_CV.pdf`, 2026-10-30). The updated resume is committed as the downloadable file `assets/docs/Smit_Bhatti_Resume.pdf`. The original CV is not committed.
 
 ## 2. Objectives
 
@@ -57,6 +57,7 @@ There are no npm dependencies. `package.json` exists only for scripts.
 | `revert/rose-gold-theme-profile-photo` | Reverts the merge above (`git revert -m 1 e85d620`), at Smit's request | 2026-10-30 |
 | `feature/rose-gold-theme-office-photo` | Re-applies the palette (reverts the revert) with the new office portrait | 2026-10-30 |
 | `feature/resume-update-nov-2026` | Content updated to the November 2026 resume | 2026-11-22 |
+| `feature/resume-download-remove-sampaarsh-link` | "Download resume" button; Sampaarsh live-site links removed | 2026-11-22 |
 
 ## 5. Folder structure
 
@@ -79,6 +80,8 @@ smit-portfolio/
 │   │   ├── interactions.js     # Scroll reveal, copy-email-to-clipboard
 │   │   ├── icons.js            # Inline SVG icon set
 │   │   └── utils.js            # esc(), tags(), sectionHeading(), external-link attrs
+│   ├── docs/
+│   │   └── Smit_Bhatti_Resume.pdf  # Downloadable resume (hero "Download resume" button)
 │   └── img/
 │       ├── favicon.svg         # "SB" monogram favicon on a rose→gold gradient
 │       ├── profile-480.webp    # Hero portrait 480×600 (1× screens)
@@ -120,11 +123,11 @@ smit-portfolio/
 | # | Section (`id`) | Content (from CV) | Component |
 |---|---|---|---|
 | — | Header / nav | Monogram and name, links to all sections, theme toggle, mobile menu | `index.html`, `nav.js`, `theme.js` |
-| 1 | Hero (`#home`) | Name, title, resume summary (backend focus, 2+ years), "Get in touch" and "View projects" CTAs, email/LinkedIn/GitHub icons, profile photo (gradient frame and gold offset block), overlapping code card, 3 highlights (2+ years experience, microservices stack, B.Tech) | `hero.js` |
+| 1 | Hero (`#home`) | Name, title, resume summary (backend focus, 2+ years), "Get in touch", "Download resume" (PDF, `download` attribute) and "View projects" CTAs, email/LinkedIn/GitHub icons, profile photo (gradient frame and gold offset block), overlapping code card, 3 highlights (2+ years experience, microservices stack, B.Tech) | `hero.js` |
 | 2 | About (`#about`) | Heading from `profile.aboutTitle`. Three-paragraph summary (role and stack, ownership and key work, education and Visit Your Barber), location, technical interests (Backend / Software Development), strengths (from the resume summary), personal interests | `about.js` |
 | 3 | Skills (`#skills`) | 6 groups: Languages, Frameworks, Databases & Data, Messaging & Architecture, Security, Tools | `skills.js` |
 | 4 | Experience (`#experience`) | Timeline: TSS Consultancy (Associate Software Developer, Oct 2024–Present), TSS Consultancy (SDK Developer Intern, Dec 2023–Mar 2024), Sampaarsh Technology (Web Developer Intern, Jun–Jul 2023) | `experience.js` |
-| 5 | Projects (`#projects`) | Visit Your Barber (personal project, Oct 2026–Present), Secure Data Exchange SDK, Sampaarsh Technology website (live link) | `projects.js` |
+| 5 | Projects (`#projects`) | Visit Your Barber (personal project, Oct 2026–Present), Secure Data Exchange SDK, Sampaarsh Technology website (no external link) | `projects.js` |
 | 6 | Education (`#education`) | B.Tech CSE (Marwadi University, 2021–25, CGPA 7.70), Senior Secondary (12th, 87.84%). Two-up card grid on wide screens. | `education.js` |
 | 7 | Contact (`#contact`) | Email with mailto and copy-to-clipboard, LinkedIn, GitHub | `contact.js` |
 | 8 | Footer | © current year, social links, back-to-top | `footer.js` |
@@ -138,8 +141,8 @@ smit-portfolio/
 - Skills follow the resume's *Technical Skills* list. Two groups are built from technologies named in its experience entries: Elasticsearch (under Databases & Data) and Security (SHA-256, AES, RSA, digital signatures).
 - Visit Your Barber lists no tech stack in the resume, so its tags are the feature areas the resume names plus "AI coding agents".
 - **Removed with the November 2026 resume:** coursework, Junior Secondary education, the Certifications card, Laravel, the "Communication / Teamwork / Time Management / Analysis" skills (replaced by strengths from the resume summary), and Visit Your Barber's old tech stack and dates.
-- The Sampaarsh **live-site link** (`sampaarsh.com`) came from the original CV and is kept, although the new resume no longer lists it.
-- **Phone number deliberately omitted** for privacy (it is in the CV). Add it only if Smit asks.
+- **No Sampaarsh live-site link.** Smit confirmed that the current sampaarsh.com is not the site his team built, so the link was removed from both Experience and Projects (2026-11-22). Do not re-add it.
+- **Phone number deliberately omitted** from the page for privacy. Add it only if Smit asks. Note that the downloadable resume PDF *does* contain the phone number; Smit asked for the download.
 - **LinkedIn** is `linkedin.com/in/smit-bhatti-27735826a` and **GitHub** is `github.com/smitbhatti189`, both as listed in the resume. Display labels live in `profile.contact.*Label`.
 - **Profile photo:** an office portrait provided by Smit (1254×1254 source), cropped to 4:5 and centred on the face. It replaced an earlier photo on 2026-10-30. No retouching. Data lives in `profile.photo` (`webpSrcset`, `jpg`, `width`, `height`, `alt`).
 
@@ -216,14 +219,14 @@ Semantic landmarks (`header`, `nav`, `main`, `section` with `aria-labelledby`, `
 - [x] Profile photo in hero (responsive WebP 480w/960w + JPEG fallback)
 - [x] Branch-per-requirement Git workflow with `--no-ff` merges into `main`
 - [x] Content updated to the November 2026 resume
+- [x] "Download resume" button in the hero (PDF served from `assets/docs/`)
 
 ### Pending
 - [ ] Deployment / hosting (e.g. GitHub Pages)
-- [ ] Downloadable CV button (waiting for Smit's approval to publish the PDF)
 
 ## 14. Testing
 
-`npm test` starts the dev server and runs headless Chromium. It verifies: all sections render; every in-page anchor resolves; nav links scroll to the right section; external links use `target="_blank"` with `rel="noopener noreferrer"`; mailto links are correct; there are no broken images; the favicon is served; theme defaults, toggling, `localStorage` persistence and reload persistence work; the dark background matches the theme's `--color-bg` token; the system dark preference is applied before the page renders; there are no console errors or failed requests; there is no horizontal overflow at 1440, 1280, 768, 390 and 320px; the mobile menu opens and closes; and touch targets are at least 44px. Run `SCREENSHOTS=1 npm test` to save screenshots for visual review.
+`npm test` starts the dev server and runs headless Chromium. It verifies: all sections render; every in-page anchor resolves; nav links scroll to the right section; external links use `target="_blank"` with `rel="noopener noreferrer"`; mailto links are correct; there are no broken images; the favicon is served; the resume download link serves a PDF; theme defaults, toggling, `localStorage` persistence and reload persistence work; the dark background matches the theme's `--color-bg` token; the system dark preference is applied before the page renders; there are no console errors or failed requests; there is no horizontal overflow at 1440, 1280, 768, 390 and 320px; the mobile menu opens and closes; and touch targets are at least 44px. Run `SCREENSHOTS=1 npm test` to save screenshots for visual review.
 
 ## 15. Known issues
 
@@ -241,7 +244,6 @@ These are not in the resume and were therefore left out:
 
 - Pre-render sections into static HTML at build time for SEO, keeping the data file as the source.
 - Offer AVIF versions of the portrait for even smaller downloads.
-- Add a "Download CV" button if Smit approves publishing it.
 - Self-host fonts to remove the third-party request.
 - Add an Open Graph share image.
 - Add a GitHub Actions workflow to run the smoke tests and deploy to GitHub Pages.
@@ -257,3 +259,4 @@ These are not in the resume and were therefore left out:
 | 2026-10-30 | **Branch `revert/rose-gold-theme-profile-photo`.** At Smit's request, reverted merge `e85d620` (rose/gold/cream palette and first profile photo) with `git revert -m 1`. The site temporarily returned to the original indigo theme and initials avatar. |
 | 2026-10-30 | **Branch `feature/rose-gold-theme-office-photo`.** Re-applied the rose/gold/cream palette by reverting the revert commit (`2ee078f`). Replaced the first photo with Smit's office portrait, cropped to 4:5 and served as responsive WebP (480w/960w) with a JPEG fallback. |
 | 2026-11-22 | **Branch `feature/resume-update-nov-2026`.** Updated all content to Smit's new resume. Changes: new summary and About text (backend focus, 2+ years); 8 detailed TSS responsibilities; SDK Developer Intern role and description; new Sampaarsh description; Visit Your Barber rewritten (Oct 2026, personal project, AI-agent-led); skills regrouped (adds Java, TypeScript, SQL, Redis, Elasticsearch, Security tools, Visual Studio, DBeaver, IntelliJ; drops Laravel); new LinkedIn URL. Removed coursework, Junior Secondary and the Certifications card. Education is now a two-up grid. The unused `award` icon was removed and the meta description updated. |
+| 2026-11-22 | **Branch `feature/resume-download-remove-sampaarsh-link`.** Removed the Sampaarsh live-site links from Experience and Projects, because the current sampaarsh.com is not the site Smit's team built. Added a "Download resume" button to the hero, with `download` attribute, download icon and an sr-only "(PDF)" hint. It serves `assets/docs/Smit_Bhatti_Resume.pdf`, with the path held in `profile.resume`. The smoke test now verifies that the link serves a PDF. |
