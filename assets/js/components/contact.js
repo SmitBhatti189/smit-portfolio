@@ -4,10 +4,10 @@ import { icons } from '../icons.js';
 
 /** Contact: primary email CTA with copy-to-clipboard, plus social profiles. */
 export function renderContact() {
-  const { email, linkedin, github } = profile.contact;
+  const { email, linkedin, linkedinLabel, github, githubLabel } = profile.contact;
   const channels = [
-    { icon: icons.linkedin, label: 'LinkedIn', value: 'linkedin.com/in/smit-bhatti', href: linkedin },
-    { icon: icons.github, label: 'GitHub', value: 'github.com/SmitBhatti189', href: github },
+    { icon: icons.linkedin, label: 'LinkedIn', value: linkedinLabel, href: linkedin },
+    { icon: icons.github, label: 'GitHub', value: githubLabel, href: github },
   ];
 
   return `

@@ -10,7 +10,7 @@
 
 A personal portfolio website for **Smit Bhatti**, Associate Software Developer at TSS Consultancy Pvt. Ltd. (Rajkot, Gujarat, India). It introduces Smit, shows his technical skills, experience, projects and education, and gives clear ways to get in touch.
 
-**Primary content source:** Smit's CV (`Smit_Bhatti_CV.pdf`, provided 2026-10-30). The CV itself is not committed to the repository.
+**Primary content source:** Smit's updated resume (`Smit_Bhatti_Resume.pdf`, provided 2026-11-22), which replaced the original CV (`Smit_Bhatti_CV.pdf`, 2026-10-30). Neither PDF is committed to the repository.
 
 ## 2. Objectives
 
@@ -56,6 +56,7 @@ There are no npm dependencies. `package.json` exists only for scripts.
 | `feature/rose-gold-theme-profile-photo` | Deep-rose / gold / cream palette (light), contrasting palette (dark), first profile photo in hero | 2026-10-30 (reverted) |
 | `revert/rose-gold-theme-profile-photo` | Reverts the merge above (`git revert -m 1 e85d620`), at Smit's request | 2026-10-30 |
 | `feature/rose-gold-theme-office-photo` | Re-applies the palette (reverts the revert) with the new office portrait | 2026-10-30 |
+| `feature/resume-update-nov-2026` | Content updated to the November 2026 resume | 2026-11-22 |
 
 ## 5. Folder structure
 
@@ -119,12 +120,12 @@ smit-portfolio/
 | # | Section (`id`) | Content (from CV) | Component |
 |---|---|---|---|
 | — | Header / nav | Monogram and name, links to all sections, theme toggle, mobile menu | `index.html`, `nav.js`, `theme.js` |
-| 1 | Hero (`#home`) | Name, title, summary, "Get in touch" and "View projects" CTAs, email/LinkedIn/GitHub icons, profile photo (gradient frame and gold offset block), overlapping code card, 3 highlights | `hero.js` |
-| 2 | About (`#about`) | Two-paragraph professional summary, location, technical interests, strengths (soft skills), personal interests | `about.js` |
-| 3 | Skills (`#skills`) | 6 groups: Languages, Frameworks & Runtimes, Databases, Architecture & Messaging, Web, Tools. Coursework line. | `skills.js` |
-| 4 | Experience (`#experience`) | Timeline: TSS Consultancy (Associate Software Developer, Oct 2024–Present), TSS Consultancy (SDK Builder Intern, Dec 2023–Mar 2024), Sampaarsh Technology (Web Developer Intern, Jun–Jul 2023) | `experience.js` |
-| 5 | Projects (`#projects`) | Visit your Barber (in development), Encryption & Decryption SDK, Sampaarsh Technology website (live link) | `projects.js` |
-| 6 | Education (`#education`) | B.Tech CSE (Marwadi University, 2021–25, CGPA 7.70), Senior Secondary (87.84%), Junior Secondary (77.00%). Certifications card. | `education.js` |
+| 1 | Hero (`#home`) | Name, title, resume summary (backend focus, 2+ years), "Get in touch" and "View projects" CTAs, email/LinkedIn/GitHub icons, profile photo (gradient frame and gold offset block), overlapping code card, 3 highlights (2+ years experience, microservices stack, B.Tech) | `hero.js` |
+| 2 | About (`#about`) | Heading from `profile.aboutTitle`. Three-paragraph summary (role and stack, ownership and key work, education and Visit Your Barber), location, technical interests (Backend / Software Development), strengths (from the resume summary), personal interests | `about.js` |
+| 3 | Skills (`#skills`) | 6 groups: Languages, Frameworks, Databases & Data, Messaging & Architecture, Security, Tools | `skills.js` |
+| 4 | Experience (`#experience`) | Timeline: TSS Consultancy (Associate Software Developer, Oct 2024–Present), TSS Consultancy (SDK Developer Intern, Dec 2023–Mar 2024), Sampaarsh Technology (Web Developer Intern, Jun–Jul 2023) | `experience.js` |
+| 5 | Projects (`#projects`) | Visit Your Barber (personal project, Oct 2026–Present), Secure Data Exchange SDK, Sampaarsh Technology website (live link) | `projects.js` |
+| 6 | Education (`#education`) | B.Tech CSE (Marwadi University, 2021–25, CGPA 7.70), Senior Secondary (12th, 87.84%). Two-up card grid on wide screens. | `education.js` |
 | 7 | Contact (`#contact`) | Email with mailto and copy-to-clipboard, LinkedIn, GitHub | `contact.js` |
 | 8 | Footer | © current year, social links, back-to-top | `footer.js` |
 
@@ -132,13 +133,14 @@ smit-portfolio/
 
 ### Content rules
 
-- Content comes **only** from the CV or from information Smit provides explicitly. Never invent achievements, metrics, links or dates.
+- Content comes **only** from the current resume or from information Smit provides explicitly. When the resume is updated, anything it drops is removed from the site too. Never invent achievements, metrics, links or dates.
 - Wording was lightly edited for grammar and clarity (e.g. the CV's "data integrity.." became "data integrity."), keeping the meaning unchanged.
-- The B.Tech is shown as "Computer Science and Engineering", following the CV's *Academic Credentials* section. The CV header says "Computer Engineering".
-- Skills are grouped from the CV's *Technical Skills* list plus technologies named in its experience entries (Angular, Kafka, Redis, microservices, micro-front-ends, HTML/CSS/JS).
-- The two "Certification" entries in the CV are internship certificates and appear as such.
+- Skills follow the resume's *Technical Skills* list. Two groups are built from technologies named in its experience entries: Elasticsearch (under Databases & Data) and Security (SHA-256, AES, RSA, digital signatures).
+- Visit Your Barber lists no tech stack in the resume, so its tags are the feature areas the resume names plus "AI coding agents".
+- **Removed with the November 2026 resume:** coursework, Junior Secondary education, the Certifications card, Laravel, the "Communication / Teamwork / Time Management / Analysis" skills (replaced by strengths from the resume summary), and Visit Your Barber's old tech stack and dates.
+- The Sampaarsh **live-site link** (`sampaarsh.com`) came from the original CV and is kept, although the new resume no longer lists it.
 - **Phone number deliberately omitted** for privacy (it is in the CV). Add it only if Smit asks.
-- **GitHub link** (`github.com/SmitBhatti189`) is not in the CV. It comes from Smit's GitHub account, which was configured in the build environment.
+- **LinkedIn** is `linkedin.com/in/smit-bhatti-27735826a` and **GitHub** is `github.com/smitbhatti189`, both as listed in the resume. Display labels live in `profile.contact.*Label`.
 - **Profile photo:** an office portrait provided by Smit (1254×1254 source), cropped to 4:5 and centred on the face. It replaced an earlier photo on 2026-10-30. No retouching. Data lives in `profile.photo` (`webpSrcset`, `jpg`, `width`, `height`, `alt`).
 
 ## 8. Theme implementation
@@ -213,6 +215,7 @@ Semantic landmarks (`header`, `nav`, `main`, `section` with `aria-labelledby`, `
 - [x] Deep-rose / vibrant-gold / cream palette (Day) and contrasting wine / gold / rose palette (Night)
 - [x] Profile photo in hero (responsive WebP 480w/960w + JPEG fallback)
 - [x] Branch-per-requirement Git workflow with `--no-ff` merges into `main`
+- [x] Content updated to the November 2026 resume
 
 ### Pending
 - [ ] Deployment / hosting (e.g. GitHub Pages)
@@ -227,10 +230,11 @@ Semantic landmarks (`header`, `nav`, `main`, `section` with `aria-labelledby`, `
 - Section content is rendered by JavaScript, so it is invisible to crawlers that don't run JS (see decision 3).
 - Full-page screenshots show the sticky header partway down the page. This is a screenshot artifact, not a layout bug.
 
-## 16. Missing information from the CV
+## 16. Missing information from the resume
 
-These are not in the CV and were therefore left out:
-- GitHub repository or live-demo links for "Visit your Barber" and the SDK project (the SDK is likely proprietary)
+These are not in the resume and were therefore left out:
+- Tech stack for Visit Your Barber
+- GitHub repository or live-demo links for Visit Your Barber and the SDK project (the SDK is likely proprietary)
 - Portfolio-specific headline or bio (the summary was written only from CV facts)
 
 ## 17. Future improvements
@@ -252,3 +256,4 @@ These are not in the CV and were therefore left out:
 | 2026-10-30 | **Branch `feature/rose-gold-theme-profile-photo`.** New palette: deep rose, vibrant gold and cream (Day), with a contrasting wine/gold/rose palette (Night). Added `--color-secondary*` and `--gradient-brand` tokens. Profile photo (provided by Smit, overlay text removed) replaces the initials avatar, with a gradient frame, gold offset block and repositioned code card. Gradient logo and favicon, section-title underline bar, updated `theme-color` meta. The smoke test now checks the dark background against the token instead of a hard-coded colour. Adopted the branch-per-requirement Git workflow. |
 | 2026-10-30 | **Branch `revert/rose-gold-theme-profile-photo`.** At Smit's request, reverted merge `e85d620` (rose/gold/cream palette and first profile photo) with `git revert -m 1`. The site temporarily returned to the original indigo theme and initials avatar. |
 | 2026-10-30 | **Branch `feature/rose-gold-theme-office-photo`.** Re-applied the rose/gold/cream palette by reverting the revert commit (`2ee078f`). Replaced the first photo with Smit's office portrait, cropped to 4:5 and served as responsive WebP (480w/960w) with a JPEG fallback. |
+| 2026-11-22 | **Branch `feature/resume-update-nov-2026`.** Updated all content to Smit's new resume. Changes: new summary and About text (backend focus, 2+ years); 8 detailed TSS responsibilities; SDK Developer Intern role and description; new Sampaarsh description; Visit Your Barber rewritten (Oct 2026, personal project, AI-agent-led); skills regrouped (adds Java, TypeScript, SQL, Redis, Elasticsearch, Security tools, Visual Studio, DBeaver, IntelliJ; drops Laravel); new LinkedIn URL. Removed coursework, Junior Secondary and the Certifications card. Education is now a two-up grid. The unused `award` icon was removed and the meta description updated. |

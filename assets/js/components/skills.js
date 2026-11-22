@@ -1,4 +1,4 @@
-import { skills, coursework } from '../data/profile.js';
+import { skills } from '../data/profile.js';
 import { esc, sectionHeading, tags } from '../utils.js';
 
 /** Technical skills grouped by category. */
@@ -15,6 +15,5 @@ export function renderSkills() {
       </article>`
       )
       .join('')}
-  </div>
-  <p class="coursework reveal"><strong>Coursework:</strong> ${coursework.map(esc).join(' · ')}</p>`;
+  </div>`;
 }

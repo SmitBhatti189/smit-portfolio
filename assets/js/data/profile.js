@@ -1,7 +1,8 @@
 /**
  * Portfolio content — single source of truth for everything rendered on the page.
- * All entries come from Smit Bhatti's CV. Do not add content that is not backed by the CV
- * (or explicitly provided by Smit). See PROJECT_DOCUMENTATION.md → "Content rules".
+ * All entries come from Smit Bhatti's resume (updated November 2026). Do not add content
+ * that is not backed by the resume (or explicitly provided by Smit).
+ * See PROJECT_DOCUMENTATION.md → "Content rules".
  */
 
 export const profile = {
@@ -17,43 +18,40 @@ export const profile = {
     alt: 'Portrait of Smit Bhatti smiling, wearing glasses and a black shirt',
   },
   tagline:
-    'I build and optimise features across .NET, Angular and PostgreSQL — working with Kafka, Redis, microservices and micro-front-end architecture.',
+    'Backend-focused software developer with 2+ years of experience building microservices in .NET, PostgreSQL and Angular, with hands-on work in Kafka and Redis.',
+  aboutTitle: 'Backend developer who owns features from development to production',
   about: [
-    'I am an Associate Software Developer at TSS Consultancy Pvt. Ltd. in Rajkot, where I implement features using Kafka and Redis within a microservices and micro-front-end architecture, and refactor code to improve performance and maintainability.',
-    'I hold a Bachelor of Technology in Computer Science and Engineering from Marwadi University. Before joining full-time, I built an encryption and decryption SDK in Go during an internship at TSS Consultancy, and developed a lead-generation website for Sampaarsh Technology.',
+    'I am a backend-focused Associate Software Developer at TSS Consultancy Pvt. Ltd. in Rajkot, with 2+ years of experience building microservices in .NET (C#), PostgreSQL and Angular — using Kafka for event-driven messaging and Redis for caching.',
+    'I take end-to-end ownership of my features, from development through production support. My work spans name-matching algorithms for the screening module, security fixes and SHA-256 based hashing, and integrations that store API results in client-provided secure storage. I am known for dependable, on-time delivery in a Scrum team and work closely with other teams, including Java-based ones.',
+    'I hold a Bachelor of Technology in Computer Science and Engineering from Marwadi University. Outside work, I am building Visit Your Barber, a barber shop management application, by leading AI coding agents through requirements, architecture and review.',
   ],
   interests: {
-    technical: ['Front-end Development', 'Software Development'],
+    technical: ['Backend Development', 'Software Development'],
     personal: ['Travel', 'Anime', 'Badminton'],
   },
-  softSkills: ['Communication', 'Teamwork', 'Time Management', 'Analysis'],
+  strengths: ['End-to-end ownership', 'On-time delivery', 'Production support', 'Cross-team collaboration'],
   contact: {
     email: 'smitsbhatti93@gmail.com',
-    linkedin: 'https://www.linkedin.com/in/smit-bhatti',
-    github: 'https://github.com/SmitBhatti189',
+    linkedin: 'https://www.linkedin.com/in/smit-bhatti-27735826a',
+    linkedinLabel: 'linkedin.com/in/smit-bhatti-27735826a',
+    github: 'https://github.com/smitbhatti189',
+    githubLabel: 'github.com/smitbhatti189',
   },
 };
 
 export const highlights = [
-  { value: 'Oct 2024', label: 'Developer at TSS Consultancy' },
-  { value: '2', label: 'Internships completed' },
+  { value: '2+ years', label: 'Professional experience' },
+  { value: 'Microservices', label: '.NET · PostgreSQL · Kafka · Redis' },
   { value: 'B.Tech', label: 'Computer Science & Engineering' },
 ];
 
 export const skills = [
-  { group: 'Programming Languages', items: ['C / C++', 'C# (.NET)', 'Go'] },
-  { group: 'Frameworks & Runtimes', items: ['.NET', 'Angular', 'Node.js', 'Express.js', 'Laravel'] },
-  { group: 'Databases', items: ['PostgreSQL', 'MongoDB'] },
-  { group: 'Architecture & Messaging', items: ['Microservices', 'Micro-front-ends', 'Kafka', 'Redis'] },
-  { group: 'Web', items: ['HTML', 'CSS', 'JavaScript'] },
-  { group: 'Tools', items: ['Git', 'VS Code', 'Postman'] },
-];
-
-export const coursework = [
-  'Data Structures',
-  'Web Development',
-  'Database Management',
-  'Object-Oriented Programming',
+  { group: 'Languages', items: ['C#', 'Java', 'Go', 'C / C++', 'TypeScript', 'JavaScript', 'SQL'] },
+  { group: 'Frameworks', items: ['.NET', 'Angular', 'Node.js', 'Express.js'] },
+  { group: 'Databases & Data', items: ['PostgreSQL', 'MongoDB', 'Redis', 'Elasticsearch'] },
+  { group: 'Messaging & Architecture', items: ['Kafka', 'Microservices', 'Micro-frontends'] },
+  { group: 'Security', items: ['SHA-256 hashing', 'AES', 'RSA', 'Digital signatures'] },
+  { group: 'Tools', items: ['Git', 'Postman', 'Visual Studio', 'VS Code', 'DBeaver', 'IntelliJ IDEA'] },
 ];
 
 export const experience = [
@@ -64,23 +62,28 @@ export const experience = [
     location: 'Rajkot, Gujarat',
     period: 'Oct 2024 – Present',
     points: [
-      'Implemented features using Kafka and Redis within microservices and micro-front-end architecture.',
-      'Refactored and optimised code to improve performance and maintainability.',
-      'Collaborated with the Automation Team to improve environment stability, enabling smoother deployments.',
+      'Develop and maintain backend services in a microservices architecture using .NET (C#) and PostgreSQL, with Kafka for event-driven messaging and Redis and LRU caching for performance; contributed changes to Elasticsearch-backed features.',
+      'Worked on the screening module, implementing and improving name-matching algorithms used to match records against screening lists.',
+      'Strengthened product security with security fixes and SHA-256 based hashing; covered the security team’s deliverables for several weeks so security releases shipped on schedule.',
+      'Built integrations that persist API results to client-provided secure storage, wrote PostgreSQL stored procedures for data retrieval and updates, and developed email notification features.',
+      'Resolved production issues within committed timelines and delivered nearly all assigned client tasks on time in a Scrum team.',
+      'Own features end to end through production, working with the Engineering Assistance team to quickly fix defects in my features — including ones introduced by other changes.',
+      'Collaborated across teams, including Java-based teams, on their client deliveries and shared requirements, and contributed to Java development when needed.',
+      'Maintained and fixed the automation team’s daily-run setup, improving environment stability and deployments; independently handle Angular front-end fixes for small features.',
     ],
-    tech: ['.NET', 'Angular', 'PostgreSQL', 'Kafka', 'Redis'],
+    tech: ['.NET (C#)', 'Angular', 'PostgreSQL', 'Java', 'Kafka', 'Redis'],
   },
   {
-    role: 'SDK Builder Intern',
+    role: 'SDK Developer Intern',
     organization: 'TSS Consultancy Pvt. Ltd.',
     type: 'Internship',
     location: 'Rajkot, Gujarat',
     period: 'Dec 2023 – Mar 2024',
     points: [
-      'Developed an encryption and decryption SDK for TSS Consultancy, covering cryptography, algorithm selection and secure software development.',
-      'Integrated an industry-standard hashing algorithm to ensure data integrity.',
+      'Built a Go SDK/API for secure data exchange with clients, implementing encryption, decryption and digital signature verification in both directions.',
+      'Applied industry-standard symmetric and asymmetric cryptography to protect data confidentiality, integrity and sender authenticity.',
     ],
-    tech: ['Go'],
+    tech: ['Go', 'AES', 'RSA', 'Digital Signatures'],
   },
   {
     role: 'Web Developer Intern',
@@ -89,8 +92,7 @@ export const experience = [
     location: 'Rajkot, Gujarat',
     period: 'Jun 2023 – Jul 2023',
     points: [
-      'Developed a dynamic lead-generation website for Sampaarsh Technology.',
-      'The website attracts potential interns and developers, expanding the company’s talent pool.',
+      'Developed the company website as part of a team to expand its online reach and clearly present its services to clients.',
     ],
     tech: ['HTML', 'CSS', 'JavaScript'],
     link: { label: 'sampaarsh.com', href: 'https://www.sampaarsh.com' },
@@ -99,21 +101,21 @@ export const experience = [
 
 export const projects = [
   {
-    name: 'Visit your Barber',
-    status: 'In development',
-    period: 'Jul 2026 – Present',
+    name: 'Visit Your Barber',
+    status: 'Personal project',
+    period: 'Oct 2026 – Present',
     description:
-      'A practice project for booking appointments with a hair specialist and ordering hair- and skin-care products online.',
-    tech: ['Angular', 'Node.js', 'Express.js', 'PostgreSQL'],
+      'A barber shop management application covering staff, inventory, billing, customer and booking management. I lead development with AI coding agents — defining requirements and architecture, planning the workflow, assigning tasks, and reviewing and approving every change.',
+    tech: ['Staff', 'Inventory', 'Billing', 'Customers', 'Bookings', 'AI coding agents'],
     links: [],
   },
   {
-    name: 'Encryption & Decryption SDK',
+    name: 'Secure Data Exchange SDK',
     status: 'Internship project',
     period: 'Dec 2023 – Mar 2024',
     description:
-      'An SDK built for TSS Consultancy providing encryption and decryption, with an industry-standard hashing algorithm for data integrity.',
-    tech: ['Go', 'Cryptography'],
+      'A Go SDK/API for secure data exchange with clients, with encryption, decryption and digital signature verification in both directions — protecting confidentiality, integrity and sender authenticity.',
+    tech: ['Go', 'AES', 'RSA', 'Digital Signatures'],
     links: [],
   },
   {
@@ -121,7 +123,7 @@ export const projects = [
     status: 'Internship project',
     period: 'Jun 2023 – Jul 2023',
     description:
-      'A dynamic lead-generation website that helps Sampaarsh Technology attract potential interns and developers.',
+      'The company website, developed as part of a team to expand Sampaarsh Technology’s online reach and clearly present its services to clients.',
     tech: ['HTML', 'CSS', 'JavaScript'],
     links: [{ label: 'Live site', href: 'https://www.sampaarsh.com' }],
   },
@@ -135,20 +137,9 @@ export const education = [
     result: 'CGPA 7.70',
   },
   {
-    qualification: 'Senior Secondary Education',
+    qualification: 'Senior Secondary Education (12th)',
     institution: 'Javiya Schooling System, Junagadh',
     period: '2020 – 2021',
     result: '87.84%',
   },
-  {
-    qualification: 'Junior Secondary Education',
-    institution: 'Alpha High School, Junagadh',
-    period: '2019 – 2020',
-    result: '77.00%',
-  },
-];
-
-export const certifications = [
-  { title: 'Web Development Internship', issuer: 'Sampaarsh Technology' },
-  { title: 'SDK Development Internship', issuer: 'TSS Consultancy Pvt. Ltd.' },
 ];
