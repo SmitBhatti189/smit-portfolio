@@ -30,6 +30,10 @@ export const profile = {
     personal: ['Travel', 'Anime', 'Badminton'],
   },
   strengths: ['End-to-end ownership', 'On-time delivery', 'Production support', 'Cross-team collaboration'],
+  resume: {
+    href: 'assets/docs/Smit_Bhatti_Resume.pdf',
+    fileName: 'Smit_Bhatti_Resume.pdf',
+  },
   contact: {
     email: 'smitsbhatti93@gmail.com',
     linkedin: 'https://www.linkedin.com/in/smit-bhatti-27735826a',
@@ -95,7 +99,6 @@ export const experience = [
       'Developed the company website as part of a team to expand its online reach and clearly present its services to clients.',
     ],
     tech: ['HTML', 'CSS', 'JavaScript'],
-    link: { label: 'sampaarsh.com', href: 'https://www.sampaarsh.com' },
   },
 ];
 
@@ -125,7 +128,7 @@ export const projects = [
     description:
       'The company website, developed as part of a team to expand Sampaarsh Technology’s online reach and clearly present its services to clients.',
     tech: ['HTML', 'CSS', 'JavaScript'],
-    links: [{ label: 'Live site', href: 'https://www.sampaarsh.com' }],
+    links: [],
   },
 ];
 

@@ -80,6 +80,12 @@ async function waitForServer() {
     check(broken === 0, 'No broken images');
     const favicon = await fetch(BASE + 'assets/img/favicon.svg');
     check(favicon.ok, 'Favicon is served');
+    const resumeHref = await page.getAttribute('a[download]', 'href');
+    const resume = resumeHref && (await fetch(BASE + resumeHref));
+    check(
+      !!resume && resume.ok && resume.headers.get('content-type') === 'application/pdf',
+      `Resume download link serves a PDF (${resumeHref})`
+    );
 
     // ---- Theme toggle & persistence ----
     console.log('Theme');

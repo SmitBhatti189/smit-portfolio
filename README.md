@@ -6,6 +6,7 @@ Personal portfolio website of **Smit Bhatti**, backend-focused Associate Softwar
 
 - Sections: Hero, About, Skills, Experience, Projects, Education, Contact, Footer
 - Day theme in deep rose, vibrant gold and cream; Night theme in a contrasting wine, gold and rose palette. Includes a toggle, saved preference and no flash of the wrong theme on load.
+- "Download resume" button (PDF in `assets/docs/`)
 - Fully responsive (desktop → 320px phones), with an accessible mobile menu
 - Accessible: semantic landmarks, skip link, keyboard navigation, visible focus, `prefers-reduced-motion` support
 - No frameworks and no runtime dependencies. All content lives in one data file.
