@@ -1,0 +1,10 @@
+{
+  // Cloudflare Workers config: serves this folder as a static site.
+  // Files listed in .assetsignore are not uploaded.
+  "$schema": "node_modules/wrangler/config-schema.json",
+  "name": "smit-portfolio",
+  "compatibility_date": "2026-11-01",
+  "assets": {
+    "directory": "."
+  }
+}

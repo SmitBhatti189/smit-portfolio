@@ -25,6 +25,21 @@ npm start            # serves the site at http://localhost:5173
 
 Because the site is static, you can also serve the folder with any static server or host it directly on GitHub Pages, Netlify or Vercel. ES modules need HTTP, so opening `index.html` straight from disk with `file://` won't work.
 
+## Deploying to Cloudflare
+
+The repo is set up for Cloudflare Workers static assets (`wrangler.jsonc`). There is no build step. `.assetsignore` keeps tests, scripts and docs from being published, and `_headers` adds security headers.
+
+**Option A, auto-deploy from GitHub (recommended):** in the Cloudflare dashboard go to *Workers & Pages → Create → Import a repository*. Pick `smit-portfolio` and leave the build command empty. The deploy command is `npx wrangler deploy`. Each push to `main` then redeploys the site to `smit-portfolio.<your-subdomain>.workers.dev`.
+
+**Option B, deploy from your computer:**
+
+```bash
+npx wrangler login
+npx wrangler deploy
+```
+
+To use a custom domain, open the Worker and go to *Settings → Domains & Routes → Add → Custom domain*.
+
 ## Testing
 
 ```bash
