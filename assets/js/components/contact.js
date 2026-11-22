@@ -2,16 +2,17 @@ import { profile } from '../data/profile.js';
 import { esc, sectionHeading, external } from '../utils.js';
 import { icons } from '../icons.js';
 
-/** Contact: primary email CTA with copy-to-clipboard, plus social profiles. */
+/** Contact: primary email CTA with copy-to-clipboard, plus phone and social profiles. */
 export function renderContact() {
-  const { email, linkedin, linkedinLabel, github, githubLabel } = profile.contact;
+  const { email, phone, phoneLabel, linkedin, linkedinLabel, github, githubLabel } = profile.contact;
   const channels = [
-    { icon: icons.linkedin, label: 'LinkedIn', value: linkedinLabel, href: linkedin },
-    { icon: icons.github, label: 'GitHub', value: githubLabel, href: github },
+    { icon: icons.phone, label: 'Phone', value: phoneLabel, href: `tel:${phone}` },
+    { icon: icons.linkedin, label: 'LinkedIn', value: linkedinLabel, href: linkedin, isExternal: true },
+    { icon: icons.github, label: 'GitHub', value: githubLabel, href: github, isExternal: true },
   ];
 
   return `
-  ${sectionHeading('contact', 'Contact', 'Let’s work together', 'Open to new opportunities and collaborations. The quickest way to reach me is by email.')}
+  ${sectionHeading('contact', 'Contact', 'Let’s work together', 'Open to new opportunities and collaborations. Reach me by email or phone.')}
   <div class="contact">
     <div class="card contact__main reveal">
       <span class="contact__icon" aria-hidden="true">${icons.mail}</span>
@@ -30,14 +31,14 @@ export function renderContact() {
         .map(
           (c) => `
         <li class="reveal">
-          <a class="card contact__channel" href="${esc(c.href)}" ${external}>
+          <a class="card contact__channel" href="${esc(c.href)}" ${c.isExternal ? external : ''}>
             <span class="contact__icon" aria-hidden="true">${c.icon}</span>
             <span>
               <span class="card__label">${esc(c.label)}</span>
               <span class="contact__value">${esc(c.value)}</span>
             </span>
-            <span class="contact__arrow" aria-hidden="true">${icons.external}</span>
-            <span class="sr-only">(opens in a new tab)</span>
+            <span class="contact__arrow" aria-hidden="true">${c.isExternal ? icons.external : icons.arrowRight}</span>
+            ${c.isExternal ? '<span class="sr-only">(opens in a new tab)</span>' : ''}
           </a>
         </li>`
         )

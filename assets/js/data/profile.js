@@ -36,6 +36,8 @@ export const profile = {
   },
   contact: {
     email: 'smitsbhatti93@gmail.com',
+    phone: '+919426369444',
+    phoneLabel: '+91 94263 69444',
     linkedin: 'https://www.linkedin.com/in/smit-bhatti-27735826a',
     linkedinLabel: 'linkedin.com/in/smit-bhatti-27735826a',
     github: 'https://github.com/smitbhatti189',
